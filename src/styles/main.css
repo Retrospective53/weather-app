@@ -19,6 +19,8 @@ body {
     z-index: -10;
     height: 100vh;
     width: 100vw;
+    background-image: url(../images/kino.jpg);
+    background-size: cover;
 }
 
 #rain {
@@ -26,6 +28,12 @@ body {
     z-index: -5;
     height: 100vh;
     width: 100vw;
+    background-image: url(../images/RAIN_GIF.gif);
+    background-size: contain;
+}
+
+#rain.active {
+    display: none;
 }
 
 #sidebar {
@@ -39,11 +47,13 @@ body {
 }
 
 #weather {
-    height: 60%;
+    height: 80%;
     width: 90%;
-    background-color: aqua;
+    /* background-color: aqua; */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: white;
+
 }

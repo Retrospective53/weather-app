@@ -1,4 +1,4 @@
-// import './styles/main.css';
+import './styles/main.css';
 
 console.log('magia');
 
@@ -9,6 +9,7 @@ const content = document.getElementById('content');
 let haha;
 
 const cityWeather = document.getElementById('cityName');
+const mainWeather = document.getElementById('mainWeather');
 const weatherName = document.getElementById('weatherName');
 const feelsLike = document.getElementById('feelsLike');
 const wind = document.getElementById('wind');
@@ -16,6 +17,7 @@ const humidity = document.getElementById('humidity');
 
 const weatherInfo = document.getElementById('weather');
 weatherInfo.appendChild(cityWeather);
+weatherInfo.appendChild(mainWeather);
 weatherInfo.appendChild(weatherName);
 weatherInfo.appendChild(feelsLike);
 weatherInfo.appendChild(wind);
@@ -31,22 +33,15 @@ function cityName(city) {
         console.log(typeof response)
         console.table(response)     
         cityWeather.textContent = response.name;
-        weatherName.textContent = response.weather.main;
-        console.log(response.weather.main)
+        mainWeather.textContent = response.weather[0].main;
+        weatherName.textContent = response.weather[0].description;
+        feelsLike.textContent = `Feels Like ${response.main.feels_like} °F`;
+        wind.textContent = `Humidity ${response.main.humidity}%`;
+        console.log(response.weather)
     })
 }
 
-
-{/* <h1 id="cityName"></h1>
-                <h2 id="weatherName"></h2>
-                <h3 id="feelsLike"></h3>
-                <h3 id="wind"></h3>
-                <h3 id="humidity"></h3> */}
-
  
-
-
-
-// cityName('Jakarta');
+cityName('Jakarta');
 
 buttonSubmit.addEventListener('click', () => cityName(inputCity.value));
